@@ -3,13 +3,11 @@ import java.io.File
 import java.io.IOException
 
 class PersonDataParser {
+
+    @Throws(IOException::class)
     fun parse(fileName: String, outputPath: String) {
-        try {
-            readPersonDataFromFile(fileName, outputPath)
-            println("Person data has successfully been migrated to output file: $outputPath")
-        } catch (err: IOException) {
-            err.printStackTrace()
-        }
+        readPersonDataFromFile(fileName, outputPath)
+        println("Person data has successfully been migrated to output file: $outputPath")
     }
 
     @Throws(IOException::class)
@@ -28,7 +26,7 @@ class PersonDataParser {
                 }
             }
 
-            XMLDocumentBuilder().savePersonsAsXML(outputPath, personCollection.convertNodesToPersonObjects());
+            XMLDocumentBuilder().savePersonsAsXML(outputPath, personCollection.convertNodesToPersonObjects())
         }
     }
 }
