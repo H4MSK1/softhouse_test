@@ -1,7 +1,7 @@
 import java.util.*
 
 class PersonCollection {
-    inner class ElementNode(var value: String, var type: ElementType)
+    class ElementNode(var value: String, var type: ElementType)
 
     enum class ElementType {
         P, T, A, F
