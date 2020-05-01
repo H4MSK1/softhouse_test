@@ -47,6 +47,6 @@ class Person {
         }
     }
 
-    private fun currentFamily(): Family = familyList[familyList.lastIndex]
+    fun currentFamily(): Family = familyList[familyList.lastIndex]
     fun hasFamily(): Boolean = familyList.count() > 0
 }
