@@ -13,3 +13,12 @@ fun main(args: Array<String>) {
         err.printStackTrace()
     }
 }
+
+fun <T> measureExecutionTime(
+    next: (Long) -> Unit,
+    function: () -> T
+) {
+    val startTime = System.currentTimeMillis()
+    function.invoke()
+    next.invoke(System.currentTimeMillis() - startTime)
+}
