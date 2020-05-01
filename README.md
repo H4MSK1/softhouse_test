@@ -11,6 +11,19 @@ cd executable
 java -jar softhouse_test-1.0-SNAPSHOT.jar
 ```
 
+## Running the file converter
+
+Make sure that the person_data.txt is located in the same folder as the JAR file itself.
+
+```bash
+java -jar softhouse_test-1.0-SNAPSHOT.jar
+
+# OR if you want to specify the source file and output destination as following:
+# java -jar softhouse_test-1.0-SNAPSHOT.jar <source file> <output file>
+# Default value <source file> = person_data.txt
+# Default value <output file> = output.xml
+```
+
 ## For development
 
 ### Build using Gradle (Windows)
@@ -29,19 +42,6 @@ Open your terminal and run
 
 ```cli
 ./gradlew uberJar
-```
-
-## Running the file converter
-
-Make sure that the person_data.txt is located in the same folder as the JAR file itself.
-
-```bash
-java -jar softhouse_test-1.0-SNAPSHOT.jar
-
-# OR if you want to specify the source file and output destination as following:
-# java -jar softhouse_test-1.0-SNAPSHOT.jar <source file> <output file>
-# Default value <source file> = person_data
-# Default value <output file> = output.xml
 ```
 
 ## Running tests
