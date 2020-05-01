@@ -49,7 +49,11 @@ class PersonDataParser {
                 var shouldProcessChunk = false
 
                 while (iterator.hasNext()) {
-                    val line: String = iterator.nextLine()
+                    val line: String = iterator.nextLine().trim()
+                    if (line.isEmpty() || line.length < 2 || line[1] != '|') {
+                        continue
+                    }
+
                     when (line[0]) {
                         'P' -> {
                             if (shouldProcessChunk) {
