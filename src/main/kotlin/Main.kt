@@ -4,8 +4,8 @@ const val DEFAULT_FILE_SOURCE = "person_data.txt"
 const val OUTPUT_FILE_SOURCE = "output.xml"
 
 fun main(args: Array<String>) {
-    val source = args.getOrElse(0) { DEFAULT_FILE_SOURCE }
-    val destination = args.getOrElse(1) { OUTPUT_FILE_SOURCE }
+    val source = getOrDefault(args, 0, DEFAULT_FILE_SOURCE)
+    val destination = getOrDefault(args, 1, OUTPUT_FILE_SOURCE)
 
     try {
         PersonDataParser().parse(source, destination)
@@ -13,6 +13,9 @@ fun main(args: Array<String>) {
         err.printStackTrace()
     }
 }
+
+fun getOrDefault(collection: Array<String>, index: Int, defaultValue: String = "") =
+    collection.getOrElse(index) { defaultValue }
 
 fun <T> measureExecutionTime(
     next: (Long) -> Unit,
