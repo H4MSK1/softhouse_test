@@ -1,18 +1,18 @@
 class Person {
     inner class Adress(fragments: Array<String>) {
-        var street = fragments.getOrElse(1) { "" }
-        var city = fragments.getOrElse(2) { "" }
-        var zipcode = fragments.getOrElse(3) { "" }
+        var street = getOrDefault(fragments, 1)
+        var city = getOrDefault(fragments, 2)
+        var zipcode = getOrDefault(fragments, 3)
     }
 
     inner class PhoneNumber(fragments: Array<String>) {
-        var mobile = fragments.getOrElse(1) { "" }
-        var landline = fragments.getOrElse(2) { "" }
+        var mobile = getOrDefault(fragments, 1)
+        var landline = getOrDefault(fragments, 2)
     }
 
     inner class Family(fragments: Array<String>) {
-        var name = fragments.getOrElse(1) { "" }
-        var born = fragments.getOrElse(2) { "" }
+        var name = getOrDefault(fragments, 1)
+        var born = getOrDefault(fragments, 2)
         var adress: Adress? = null
         var phoneNumber: PhoneNumber? = null
     }
@@ -31,8 +31,8 @@ class Person {
             PersonCollection.ElementType.F -> familyList.add(Family(fragments))
 
             PersonCollection.ElementType.P -> {
-                firstname = fragments.getOrElse(1) { "" }
-                lastname = fragments.getOrElse(2) { "" }
+                firstname = getOrDefault(fragments, 1)
+                lastname = getOrDefault(fragments, 2)
             }
 
             PersonCollection.ElementType.T -> when {
